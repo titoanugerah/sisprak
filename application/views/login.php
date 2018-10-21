@@ -27,8 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url('.');?>"><b>SIMFO</b>KU</a>
-    <p>Sistem Informasi Praktikum</p>
+    <a href="<?php echo base_url('.');?>"><b>SIS</b>PRAK</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

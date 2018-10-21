@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[TM] Dashboard</title>
+  <title>SISPRAK</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="<?php echo base_url('./assets/'); ?>dist/css/skins/_all-skins.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?php echo base_url('./assets/'); ?>plugins/iCheck/flat/blue.css">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="<?php echo base_url('./assets/'); ?>plugins/morris/morris.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="<?php echo base_url('./assets/'); ?>plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <!-- Date Picker -->
@@ -45,9 +43,9 @@
     <!-- Logo -->
     <a href="<?php echo base_url('.');?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>T</b>M</span>
+      <span class="logo-mini"><b>S</b>E</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Teknik</b>Mesin</span>
+      <span class="logo-lg"><b>SIS</b>PRAK</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -150,9 +148,6 @@
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('./assets/'); ?>bootstrap/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="<?php echo base_url('./assets/'); ?>plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="<?php echo base_url('./assets/'); ?>plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -173,8 +168,6 @@
 <script src="<?php echo base_url('./assets/'); ?>plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('./assets/'); ?>dist/js/app.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url('./assets/'); ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('./assets/'); ?>dist/js/demo.js"></script>
 </body>

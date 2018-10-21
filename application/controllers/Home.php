@@ -25,8 +25,8 @@ class Home extends CI_Controller {
 					'username' => $account->username,
 					'password' => $account->password,
 					'fullname' => $account->fullname,
+					'pic_id' => $account->pic_id,
 					'email' => $account->email,
-					'no_hp' => $account->no_hp,
 					'status' => $account->status,
 					'privilleges' => $account->privilleges
  				 );
@@ -53,7 +53,7 @@ class Home extends CI_Controller {
 				'password' => $account->password,
 				'fullname' => $account->fullname,
 				'email' => $account->email,
-				'no_hp' => $account->no_hp,
+				'pic_id' => $account->pic_id,
 				'status' => $account->status,
 				'privilleges' => $account->privilleges
 			 );

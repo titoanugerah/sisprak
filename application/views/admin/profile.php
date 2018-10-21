@@ -90,9 +90,9 @@
             </div>
 
             <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">NIM</label>
+              <label for="inputName" class="col-sm-2 control-label">NIP</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="Masukan NIM  " name="pic_id" value="<?php echo $this->session->userdata['pic_id']; ?>">
+                <input type="text" class="form-control" placeholder="Masukan nomor HP  " name="pic_id" value="<?php echo $this->session->userdata['pic_id']; ?>">
               </div>
             </div>
 
