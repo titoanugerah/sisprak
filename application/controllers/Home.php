@@ -43,6 +43,7 @@ class Home extends CI_Controller {
 
 	public function profile()
 	{
+		$data['notification'] = 'no';
 		if ($this->input->post('updateAccount')) {
 			$this->home_model->updateAccount();
 			$account = $this->home_model->getUpdatedAccount();
@@ -67,6 +68,7 @@ class Home extends CI_Controller {
 
 	public function dashboard()
 	{
+		$data['notification'] = 'no';
 		$data['view_name'] = 'dashboard';
 		$this->load->view('template',$data);
 	}

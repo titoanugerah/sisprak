@@ -61,7 +61,7 @@
             <div class="form-group">
               <label for="inputName" class="col-sm-2 control-label">NIM</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="Masukan NIM" name="nim" value="<?php echo $account->pic_id; ?>">
+                <input type="text" class="form-control" placeholder="Masukan NIM" name="pic_id" value="<?php echo $account->pic_id; ?>">
               </div>
             </div>
 
@@ -83,13 +83,6 @@
               <label for="inputName" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
                 <input type="email" class="form-control" placeholder="Masukan email mahasiswa" name="email" value="<?php echo $account->email; ?>">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">NIM</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="Masukan NIM" name="pic_id" value="<?php echo $account->pic_id; ?>">
               </div>
             </div>
 
