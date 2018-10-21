@@ -116,6 +116,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <!-- Main content -->
+      <?php $this->load->view('notification/'.$notification); ?>
     <section class="content">
       <?php $this->load->view($this->session->userdata['privilleges'].'/'.$view_name);?>
 

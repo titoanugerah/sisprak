@@ -13,5 +13,14 @@ class admin_model extends CI_model{
       $query = $this->db->get_where('account',$where);
       return $query->result();
     }
+
+    public function getSelectedAccount($id)
+    {
+      $where = array('id' => $id );
+      $query = $this->db->get_where('account',$where);
+      return $query->row();
+
+    }
+
 }
 ?>
