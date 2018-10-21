@@ -9,6 +9,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?php echo base_url('./assets/'); ?>bootstrap/css/bootstrap.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url('./assets/plugins/datatables/dataTables.bootstrap.css');?>">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -143,6 +145,24 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- DataTables -->
+<script src="<?php echo base_url('./assets/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+<script src="<?php echo base_url('./assets/plugins/datatables/dataTables.bootstrap.min.js'); ?>"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
@@ -170,5 +190,6 @@
 <script src="<?php echo base_url('./assets/'); ?>dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('./assets/'); ?>dist/js/demo.js"></script>
+
 </body>
 </html>

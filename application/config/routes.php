@@ -6,5 +6,7 @@ $route['login'] = 'home/login';
 $route['dashboard'] = 'home/dashboard';
 $route['profile'] = 'home/profile';
 $route['logout'] = 'home/logout';
+
+$route['listAccount'] = 'admin/listAccount';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

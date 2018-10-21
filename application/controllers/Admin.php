@@ -8,10 +8,14 @@ class Admin extends CI_Controller{
     $this->load->model('admin_model');
   }
 
-  public function adminDashboard()
+  public function listAccount()
   {
-    $this->load->view('template');
+    $data['account'] = $this->admin_model->getUserAccount();
+    $data['view_name'] = 'listAccount';
+    $this->load->view('template',$data);
+
   }
+
 }
 
  ?>
