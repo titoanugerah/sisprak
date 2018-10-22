@@ -80,37 +80,32 @@ class admin_model extends CI_model{
           $val=array();
           for ($col = 0; $col < $highestColumnIndex; ++ $col) {
             $cell = $worksheet->getCellByColumnAndRow($col, $row);
-            //$val1[] = $cell->getValue();
-            $val[] = preg_replace('/[^A-Za-z0-9\. :-]/', '', $cell->getValue());
+            $val[] = ucwords(strtolower(preg_replace('/[^A-Za-z0-9\. :-]/', '', $cell->getValue())));
           }
-          //$genre=	getGenre($val[4]);
+
           if (($val[1] == '') || ($val[1] == null)){
             $i['error_status']=-2;
             return $i;
-            //mysql_query('ROLLBACK');
             break;
+
           } elseif(($val[2] == '') || ($val[2] == null)){
             $i['error_status']=-2;
             return $i;
-            //mysql_query('ROLLBACK');
             break;
           }
-          //$uniqueTimeCheck= mysql_query("INSERT INTO unique_time_tester set ch_code='". $ch_code."', filename= '".$fileName."',time_check='".$val[1]."'");
-          //copy ke Program Library
           if($i['error_status']==0) {
             $data = array(
               'pic_id' => $val[1],
               'fullname' => $val[2],
               'privilleges' => 'user'
             );
-
             $this->db->insert('account',$data);
           } else {
             $i['error_status']=-1;
             return $i;
-            //mysql_query('ROLLBACK');
             break;
           }
+
           if ($i['error_status']==-1){
             return $i;
             //mysql_query('ROLLBACK');

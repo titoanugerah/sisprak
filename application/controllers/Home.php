@@ -73,6 +73,36 @@ class Home extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 
+	public function regist()
+	{
+		if ($this->input->post('verifUser')) {
+			$pic_id = $this->input->post('pic_id');
+			$user = $this->home_model->verifUser();
+			if ($user->num_rows()>0) {
+				redirect(base_url('verifyUser/'.$pic_id));
+			} else {
+				$this->load->view('notification/verifFailed');
+				$this->load->view('regist');
+			}
+		} else {
+			$this->load->view('regist');
+		}
+	}
+
+	public function verifyUser($pic_id)
+	{
+		if ($this->input->post('updateUser')) {
+			$this->home_model->updateUser($pic_id);
+			redirect(base_url('login'));
+		} else {
+			$data['account'] = $this->home_model->getVerifiedAccount($pic_id);
+			$this->load->view('notification/verifiedUser',$data);
+			$this->load->view('regist2',$data);
+		}
+	}
+
+
+
 	public function logout()
 	{
 		$this->session->sess_destroy();
