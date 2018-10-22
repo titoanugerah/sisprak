@@ -22,13 +22,14 @@
 
   <li class="active treeview">
     <a href="#">
-      <i class="fa fa-newspaper-o"></i> <span>Rekap</span>
+      <i class="fa fa-newspaper-o"></i> <span>Praktikum</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="<?php echo base_url('parkReport');?>"><i class="fa fa-car"></i> Parking</a></li>
+      <li><a href="<?php echo base_url('listPraktikum');?>"><i class="fa fa-list"></i> Rekap Praktikum</a></li>
+      <li><a href="<?php echo base_url('addPraktikum');?>"><i class="fa fa-plus"></i> Buat Praktikum</a></li>
     </ul>
   </li>
 

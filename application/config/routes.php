@@ -10,5 +10,10 @@ $route['logout'] = 'home/logout';
 $route['addAccount'] = 'admin/addAccount';
 $route['listAccount'] = 'admin/listAccount';
 $route['detailAccount/(:any)'] = 'admin/detailAccount/$1';
+
+$route['addPraktikum'] = 'admin/addPraktikum';
+$route['listPraktikum'] ='admin/listPraktikum';
+$route['detailPraktikum/(:any)'] = 'admin/detailPraktikum/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -50,6 +50,41 @@ class Admin extends CI_Controller{
     $data['view_name'] = 'addAccount';
     $this->load->view('template',$data);
   }
+
+  public function addPraktikum()
+  {
+    if ($this->input->post('addPraktikum')) {
+      $this->admin_model->addPraktikum();
+      redirect(base_url('listPraktikum'));
+    }
+    $data['notification'] = 'no';
+    $data['view_name'] = 'addPraktikum';
+    $data['user'] = $this->admin_model->getUserAccount();
+    $this->load->view('template',$data);
+  }
+
+  public function listPraktikum()
+  {
+    $data['notification'] = 'no';
+    $data['praktikum'] = $this->admin_model->getPraktikum();
+    $data['view_name'] = 'listPraktikum';
+    $this->load->view('template',$data);
+  }
+
+  public function detailPraktikum($id)
+  {
+    $data['notification'] = 'no';
+    if($this->input->post('updatePraktikum')){
+      $this->admin_model->updatePraktikum($id);
+    } elseif ($this->input->post('deletePraktikum')) {
+      $this->admin_model->deletePraktikum($id);
+      redirect(base_url('listPraktikum'));
+    }
+    $data['user'] = $this->admin_model->getUserAccount();
+    $data['praktikum'] = $this->admin_model->getSelectedPraktikum($id);
+    $data['view_name'] = 'detailPraktikum';
+    $this->load->view('template',$data);
+  }
 }
 
  ?>

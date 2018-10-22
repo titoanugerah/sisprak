@@ -127,5 +127,51 @@ class admin_model extends CI_model{
       }
       return $i;
     }
+
+    public function addPraktikum()
+    {
+      $data = array(
+        'praktikum_name' => $this->input->post('praktikum_name'),
+        'year' => $this->input->post('year'),
+        'semester' => $this->input->post('semester'),
+        'id_admin' => $this->session->userdata['id'],
+        'id_koor' => $this->input->post('id_koor'),
+       );
+
+       $this->db->insert('praktikum',$data);
+    }
+
+    public function getPraktikum()
+    {
+      $query = $this->db->get('view_praktikum');
+      return $query->result();
+    }
+
+    public function getSelectedPraktikum($id)
+    {
+      $where = array('id' => $id );
+      $query = $this->db->get_where('view_praktikum',$where);
+      return $query->row();
+    }
+
+    public function updatePraktikum($id)
+    {
+      $where = array('id' => $id );
+      $data = array(
+        'praktikum_name' => $this->input->post('praktikum_name'),
+        'year' => $this->input->post('year'),
+        'semester' => $this->input->post('semester'),
+        'id_koor' => $this->input->post('id_koor')
+       );
+       $this->db->where($where);
+       $this->db->update('praktikum',$data);
+    }
+
+    public function deletePraktikum($id)
+    {
+      $where = array('id' => $id );
+      $this->db->delete('praktikum',$where);
+    }
+
 }
 ?>
