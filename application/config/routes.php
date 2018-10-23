@@ -17,6 +17,8 @@ $route['addPraktikum'] = 'admin/addPraktikum';
 $route['listPraktikum'] ='admin/listPraktikum';
 $route['detailPraktikum/(:any)'] = 'admin/detailPraktikum/$1';
 
+$route['modulPraktikum/(:any)'] = 'user/modulPraktikum/$1';
+$route['editModul/(:any)'] = 'user/editModul/$1';
 $route['addPraktikan/(:any)'] = 'user/addPraktikan/$1';
 $route['listPraktikan/(:any)'] = 'user/listPraktikan/$1';
 $route['deleteAsist/(:any)'] = 'user/deleteAsist/$1';

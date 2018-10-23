@@ -97,6 +97,13 @@ class home_model extends CI_model{
      $query = $this->db->get_where('view_menu_praktikum',$where);
      return $query->result();
    }
+
+   public function getDetailModul($id)
+   {
+     $where = array('id' =>$id );
+     $query = $this->db->get_where('view_modul');
+     return $query->row();
+   }
 }
 
 

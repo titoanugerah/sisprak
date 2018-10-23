@@ -106,7 +106,6 @@
                 <th>No.</th>
                 <th>NIM</th>
                 <th>Nama Mahasiswa</th>
-                <th>Modul</th>
                 <th>Opsi</th>
 
               </tr>
@@ -117,8 +116,7 @@
                 <td><?php echo $i; ?></td>
                 <td><?php echo $item->pic_id; ?></td>
                 <td><?php echo $item->fullname; ?></td>
-                <td><?php echo $item->modul; ?></td>
-                <td><a href="<?php echo base_url('deleteAsist/'.$item->id);?>">Hapus Asisten</a> | <a href="<?php echo base_url('detailAsist/'.$item->id);?>">Detail Asisten</a></td>
+                <td><a href="<?php echo base_url('deleteAsist/'.$item->id);?>">Hapus Asisten</a></td>
               </tr>
               <?php $i++; endforeach; ?>
               </tbody>
@@ -127,7 +125,6 @@
                 <th>No.</th>
                 <th>NIM</th>
                 <th>Nama Mahasiswa</th>
-                <th>Modul</th>
                 <th>Opsi</th>
               </tr>
               </tfoot>

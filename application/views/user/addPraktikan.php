@@ -1,7 +1,7 @@
 <div class="nav-tabs-custom">
   <ul class="nav nav-tabs">
-    <li class=""><a href="#addSingle" data-toggle="tab">Tambahkan Manual</a></li>
-    <li class="active"><a href="#uploadPraktikan" data-toggle="tab">Upload Dari Absen</a></li>
+    <li class=""><a href="#addSingle" data-toggle="tab">Praktikan/Asisten Manual</a></li>
+    <li class="active"><a href="#uploadPraktikan" data-toggle="tab">Praktikan via Excel</a></li>
     <!--
     <li><a href="#skta" data-toggle="tab">Kelayakan Tugas Akhir</a></li>
   -->

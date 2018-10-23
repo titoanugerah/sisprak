@@ -171,6 +171,19 @@ class user_model extends CI_model{
       return $query->result();
     }
 
+    public function addModul($id)
+    {
+      $data = array(
+        'id_praktikum' => $id,
+        'modul' => $this->input->post('modul'),
+        'nama_modul' => $this->input->post('nama_modul'),
+        'id_asisten_1' => $this->input->post('id_asisten_1'),
+        'id_asisten_2' => $this->input->post('id_asisten_2'),
+        'tanggal' => $this->input->post('tanggal')
+       );
+       $this->db->insert('modul',$data);
+    }
+
     public function getUserAccount()
     {
       $where = array('privilleges' => 'user' );
@@ -210,6 +223,15 @@ class user_model extends CI_model{
       $query = $this->db->get_where('praktikum_role',$where);
       return $query->row();
     }
+
+    public function getModul($id)
+    {
+      $where = array('id_praktikum' => $id );
+      $query = $this->db->get_where('view_modul',$where);
+      return $query->result();
+    }
+
+
 
 }
 

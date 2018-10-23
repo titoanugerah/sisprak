@@ -212,7 +212,7 @@ $(function () {
 
   //Date picker
   $('#datepicker').datepicker({
-    autoclose: true
+    dateFormat: 'yy-mm-dd'
   });
 
 });

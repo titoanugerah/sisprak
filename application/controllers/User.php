@@ -24,6 +24,20 @@ class User extends CI_Controller{
     redirect(base_url('listPraktikan/'.$role->id_praktikum));
   }
 
+  public function modulPraktikum($id)
+  {
+    if ($this->input->post('addModul')) {
+      $this->user_model->addModul($id);
+    }
+    $data['detail'] = $this->user_model->getSelectedPraktikum($id);
+    $data['modul1'] = $this->user_model->getModul($id);
+    $data['user'] = $this->user_model->getListAssisten($id);
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
+    $data['notification'] = 'no';
+    $data['view_name'] = 'modulPraktikum';
+    $this->load->view('template',$data);
+  }
+
   public function addPraktikan($id)
   {
     if ($this->input->post('addPraktikan')) {
@@ -39,6 +53,17 @@ class User extends CI_Controller{
     $data['praktikum'] = $this->home_model->getUserPraktikum();
     $data['notification'] = 'no';
     $data['view_name'] = 'addPraktikan';
+    $this->load->view('template',$data);
+  }
+
+  public function editModul($id)
+  {
+    $data['detail'] = $this->home_model->getDetailModul($id);
+    $data['user'] = $this->user_model->getListAssisten($data['detail']->id_praktikum);
+
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
+    $data['notification'] = 'no';
+    $data['view_name'] = 'editModul';
     $this->load->view('template',$data);
   }
 
