@@ -17,5 +17,8 @@ $route['addPraktikum'] = 'admin/addPraktikum';
 $route['listPraktikum'] ='admin/listPraktikum';
 $route['detailPraktikum/(:any)'] = 'admin/detailPraktikum/$1';
 
+$route['addPraktikan/(:any)'] = 'user/addPraktikan/$1';
+$route['listPraktikan/(:any)'] = 'user/listPraktikan/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

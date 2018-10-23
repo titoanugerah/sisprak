@@ -54,7 +54,8 @@ class Admin extends CI_Controller{
   public function addPraktikum()
   {
     if ($this->input->post('addPraktikum')) {
-      $this->admin_model->addPraktikum();
+      $id = $this->admin_model->addPraktikum();
+      $this->admin_model->createUserRole($id, $this->input->post('id_koor'),1);
       redirect(base_url('listPraktikum'));
     }
     $data['notification'] = 'no';
@@ -74,14 +75,16 @@ class Admin extends CI_Controller{
   public function detailPraktikum($id)
   {
     $data['notification'] = 'no';
+    $data['user'] = $this->admin_model->getUserAccount();
+    $data['praktikum'] = $this->admin_model->getSelectedPraktikum($id);
     if($this->input->post('updatePraktikum')){
+      $this->admin_model->updateUserRole($id,$data['praktikum']->id_koor,0);
       $this->admin_model->updatePraktikum($id);
+      $this->admin_model->updateUserRole($id,$this->input->post('id_koor'),1);
     } elseif ($this->input->post('deletePraktikum')) {
       $this->admin_model->deletePraktikum($id);
       redirect(base_url('listPraktikum'));
     }
-    $data['user'] = $this->admin_model->getUserAccount();
-    $data['praktikum'] = $this->admin_model->getSelectedPraktikum($id);
     $data['view_name'] = 'detailPraktikum';
     $this->load->view('template',$data);
   }

@@ -7,17 +7,24 @@
     </a>
   </li>
 
-  <li class="active treeview">
+  <?php foreach ($praktikum as $item) : ?>
+  <li class="treeview">
     <a href="#">
-      <i class="fa fa-car"></i> <span>Parkir</span>
+      <i class="fa fa-car"></i><span><?php echo $item->praktikum_name; ?></span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="<?php echo base_url('parkIn');?>"><i class="fa fa-arrow-circle-o-down"></i> Parkir Masuk</a></li>
-      <li><a href="<?php echo base_url('parkOut');?>"><i class="fa fa-arrow-circle-o-up"></i> Parkir Keluar</a></li>
+      <?php if ($item->role==1): ?>
+        <li><a href="<?php echo base_url('addPraktikan/'.$item->id); ?>"><i class="fa fa-plus"></i>Tambah Praktikan & Asisten</a></li>
+        <li><a href="<?php echo base_url('listPraktikan/'.$item->id); ?>"><i class="fa fa-users"></i>Rekap Praktikan & Asisten</a></li>
+      <?php else : ?>
+
+      <?php endif; ?>
+
     </ul>
   </li>
+<?php  endforeach; ?>
 
 </ul>

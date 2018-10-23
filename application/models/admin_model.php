@@ -132,8 +132,8 @@ class admin_model extends CI_model{
         'id_admin' => $this->session->userdata['id'],
         'id_koor' => $this->input->post('id_koor'),
        );
-
        $this->db->insert('praktikum',$data);
+       return $this->db->insert_id();
     }
 
     public function getPraktikum()
@@ -166,6 +166,29 @@ class admin_model extends CI_model{
     {
       $where = array('id' => $id );
       $this->db->delete('praktikum',$where);
+    }
+
+    public function updateUserRole($id_praktikum, $id_user, $role)
+    {
+      $where = array(
+        'id_praktikum' => $id_praktikum,
+        'id_user' => $id_user,
+      );
+      $data = array('role' => $role);
+
+      $this->db->where($where);
+      $this->db->update($data);
+    }
+
+    public function createUserRole($id_praktikum, $id_user, $role)
+    {
+      $data = array(
+        'id_praktikum' => $id_praktikum,
+        'id_user' => $id_user,
+        'role' => $role
+        );
+
+      $this->db->insert('praktikum_role',$data);
     }
 
 }

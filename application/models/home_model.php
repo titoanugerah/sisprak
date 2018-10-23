@@ -90,6 +90,13 @@ class home_model extends CI_model{
       $this->db->where($where);
       $this->db->update('account',$data);
    }
+
+   public function getUserPraktikum()
+   {
+     $where = array('id_user' => $this->session->userdata['id']);
+     $query = $this->db->get_where('view_menu_praktikum',$where);
+     return $query->result();
+   }
 }
 
 

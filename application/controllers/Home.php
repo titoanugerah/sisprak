@@ -43,6 +43,10 @@ class Home extends CI_Controller {
 
 	public function profile()
 	{
+		if ($this->session->userdata['privilleges']=='user') {
+			$data['praktikum'] = $this->home_model->getUserPraktikum();
+		}
+
 		$data['notification'] = 'no';
 		if ($this->input->post('updateAccount')) {
 			$this->home_model->updateAccount();
@@ -68,6 +72,9 @@ class Home extends CI_Controller {
 
 	public function dashboard()
 	{
+		if ($this->session->userdata['privilleges']=='user') {
+			$data['praktikum'] = $this->home_model->getUserPraktikum();
+		}
 		$data['notification'] = 'no';
 		$data['view_name'] = 'dashboard';
 		$this->load->view('template',$data);

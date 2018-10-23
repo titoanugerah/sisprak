@@ -6,12 +6,38 @@ class User extends CI_Controller{
   {
     parent::__construct();
     $this->load->model('user_model');
+    $this->load->model('home_model');
+    $this->load->model('admin_model');
+
   }
 
-  public function userDashboard()
+  public function addPraktikan($id)
   {
-    // code...
+    if ($this->input->post('addPraktikan')) {
+      $this->user_model->uploadPraktikan($id);
+      redirect(base_url('listPraktikan/'.$id));
+
+    } elseif ($this->input->post('addRole')) {
+      $this->user_model->deleteRole($id);
+      $this->user_model->addRole($id);
+      redirect(base_url('listPraktikan/'.$id));
+    }
+    $data['user'] = $this->user_model->getUserAccount();
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
+    $data['notification'] = 'no';
+    $data['view_name'] = 'addPraktikan';
+    $this->load->view('template',$data);
   }
 
+  public function listPraktikan($id)
+  {
+    $data['detail'] = $this->user_model->getSelectedPraktikum($id);
+    $data['asist'] = $this->user_model->getListAssisten($id);
+    $data['list'] = $this->user_model->getListPraktikan($id);
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
+    $data['notification'] = 'no';
+    $data['view_name'] = 'listPraktikan';
+    $this->load->view('template',$data);
+  }
 }
  ?>
