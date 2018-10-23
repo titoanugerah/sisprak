@@ -7,7 +7,7 @@ $autoload['libraries'] = array('session','database');
 
 $autoload['drivers'] = array();
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','form');
 
 $autoload['config'] = array();
 

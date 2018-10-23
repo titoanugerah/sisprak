@@ -4,7 +4,7 @@
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#editModul" data-toggle="tab">Edit Modul</a></li>
-        <li ><a href="#listFile" data-toggle="tab">File Modul dan Keperluan</a></li>
+        <li ><a href="#uploadFile" data-toggle="tab">Upload File</a></li>
       </ul>
       <div class="tab-content">
 
@@ -62,50 +62,55 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success" name="addModul" value="addModul">Simpan Data</button>
+                <button type="submit" class="btn btn-danger" name="deleteModul" value="deleteModul">Hapus Modul</button>
+                <button type="submit" class="btn btn-success" name="updateModul" value="updateModul">Simpan Data</button>
+                <button type="submit" class="btn btn-primary" name="back" value="back">Kembali</button>
               </div>
             </div>
           </form>
 
         </div>
 
-        <div class="tab-pane" id="listFile">
+        <div class="tab-pane" id="uploadFile">
           <div class="box-body">
-            <table id="example2" class="table table-bordered table-striped">
-              <thead>
-              <tr>
-                <th>No.</th>
-                <th>Nama Modul</th>
-                <th>Asisten 1</th>
-                <th>Asisten 2</th>
-                <th>Tanggal </th>
-                <th>Opsi</th>
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
 
-              </tr>
-              </thead>
-              <tbody>
-                <?php $i=1; foreach ($modul1 as $item1) : ?>
-              <tr>
-                <td><?php echo $i; ?></td>
-                <td><?php echo "Modul ".$item1->modul." : ".$item1->nama_modul; ?></td>
-                <td><?php echo $item1->asisten_1; ?></td>
-                <td><?php echo $item1->asisten_2; ?></td>
-                <td><?php echo $item1->tanggal; ?></td>
-                <td><a href="<?php echo base_url('editModul/'.$item1->id);?>">Edit</a></td>
-              </tr>
-              <?php $i++; endforeach; ?>
-              </tbody>
-              <tfoot>
-              <tr>
-                <th>No.</th>
-                <th>Nama Modul</th>
-                <th>Asisten 1</th>
-                <th>Asisten 2</th>
-                <th>Tanggal </th>
-                <th>Opsi</th>
-              </tr>
-              </tfoot>
-            </table>
+              <div class="alert alert-info rt-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-ban"></i> Petunjuk </h4>
+                Silahkan upload file
+                <br>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Jenis Upload</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" name="type">
+                      <option value="0" >Modul</option>
+                      <option value="1" >Tugas Pendahuluan</option>
+                      <option value="2" >File Pendukung</option>
+                      <option value="3" >Tugas</option>
+                      <option value="4" >Format Laporan</option>
+                      <option value="5" >Lain Lain</option>
+                    </select>
+                  </div>
+                </div>
+
+              <div class="form-group">
+                <label for="bukti" class="col-sm-2 control-label">Upload File</label>
+                <div class="col-sm-10">
+                  <input type="file" name="files" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-info" name="uploadFile" value="uploadFile">Upload</button>
+                </div>
+              </div>
+
+            </form>
+
           </div>
         </div>
 

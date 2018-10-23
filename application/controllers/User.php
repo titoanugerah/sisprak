@@ -60,7 +60,32 @@ class User extends CI_Controller{
   {
     $data['detail'] = $this->home_model->getDetailModul($id);
     $data['user'] = $this->user_model->getListAssisten($data['detail']->id_praktikum);
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
 
+    if ($this->input->post('updateModul')) {
+      $this->user_model->updateModul($id);
+    } elseif ($this->input->post('back')) {
+      $data['detail'] = $this->home_model->getDetailModul($id);
+      redirect(base_url('modulPraktikum/'.$data['detail']->id_praktikum));
+    } elseif ($this->input->post('deleteModul')) {
+      $data['detail'] = $this->home_model->getDetailModul($id);
+      $this->user_model->deleteModul($id);
+      redirect(base_url('modulPraktikum/'.$data['detail']->id_praktikum));
+    } elseif ($this->input->post('uploadFile')) {
+      $config['upload_path']   = APPPATH.'../assets/modul/';
+      $config['overwrite'] = TRUE;
+      $config['file_name']     = "[RSBK]".$this->input->post('type')." Bab ".$detail->modul;
+      $config['allowed_types'] = 'jpg|png';
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('carousel_img_')) {
+        echo $this->upload->display_errors();
+      } else {
+        $this->home_model->updateCarousel($config['file_name']);
+      }
+
+    }
+    $data['detail'] = $this->home_model->getDetailModul($id);
+    $data['user'] = $this->user_model->getListAssisten($data['detail']->id_praktikum);
     $data['praktikum'] = $this->home_model->getUserPraktikum();
     $data['notification'] = 'no';
     $data['view_name'] = 'editModul';
