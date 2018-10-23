@@ -11,6 +11,19 @@ class User extends CI_Controller{
 
   }
 
+  public function deleteAsist($id)
+  {
+    $role = $this->user_model->getSelectedRole($id);
+    $this->user_model->deleteSelectedRole($id);
+    redirect(base_url('listPraktikan/'.$role->id_praktikum));
+  }
+
+  public function deletePraktikan($id)
+  {
+    $this->user_model->deleteSelectedRole($id);
+    redirect(base_url('listPraktikan/'.$role->id_praktikum));
+  }
+
   public function addPraktikan($id)
   {
     if ($this->input->post('addPraktikan')) {

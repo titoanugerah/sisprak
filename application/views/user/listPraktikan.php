@@ -78,7 +78,7 @@
                 <td><?php echo $item->fullname; ?></td>
                 <td><?php echo $item->shift; ?></td>
                 <td><?php echo $item->kelompok; ?></td>
-                <td><a href="<?php echo base_url('detailAccount/'.$item->id);?>">Detail</a></td>
+                <td><a href="<?php echo base_url('deletePraktikan/'.$item->id);?>">Hapus</a></td>
               </tr>
               <?php $i++; endforeach; ?>
               </tbody>

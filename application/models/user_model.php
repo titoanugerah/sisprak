@@ -198,6 +198,19 @@ class user_model extends CI_model{
        $this->db->insert('praktikum_role',$data);
     }
 
+    public function deleteSelectedRole($id)
+    {
+      $where = array('id' => $id );
+      $this->db->delete('praktikum_role',$where);
+    }
+
+    public function getSelectedRole($id)
+    {
+      $where = array('id' => $id );
+      $query = $this->db->get_where('praktikum_role',$where);
+      return $query->row();
+    }
+
 }
 
  ?>
