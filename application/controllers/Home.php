@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('home_model');
+		$this->load->helper('file');
 	}
 
 	public function index()
@@ -108,6 +109,15 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function downloadFile($file)
+  {
+//		var_dump($file);die;
+    $path = base_url().'assets\upload'.$file;
+//		$path2 = './assets/upload/Praktikum RSBK/M.docx';
+//		var_dump($path);die;
+    force_download($path,null);
+
+  }
 
 
 	public function logout()

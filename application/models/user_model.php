@@ -252,6 +252,36 @@ class user_model extends CI_model{
       $this->db->delete('modul',$where);
     }
 
+    public function createUploadLog($id_praktikum,$id, $type, $fname)
+    {
+      $data = array(
+        'id_praktikum' => $id_praktikum,
+        'id_modul' => $id,
+        'type' => $type,
+        'filename' => $fname
+      );
+
+      $this->db->insert('file',$data);
+    }
+
+    public function deletePreviousFile($id_praktikum,$id_modul,$type)
+    {
+      $where = array(
+        'id_praktikum' => $id_praktikum,
+        'id_modul' => $id_modul,
+        'type' => $type
+      );
+      $this->db->delete('file',$where);
+
+    }
+
+    public function getFile($id)
+    {
+      $where = array('id_modul' => $id );
+      $query = $this->db->get_where('file',$where);
+      return $query->result();
+    }
+
 }
 
  ?>

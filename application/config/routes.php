@@ -17,6 +17,8 @@ $route['addPraktikum'] = 'admin/addPraktikum';
 $route['listPraktikum'] ='admin/listPraktikum';
 $route['detailPraktikum/(:any)'] = 'admin/detailPraktikum/$1';
 
+$route['groupPraktikan/(:any)'] = 'user/groupPraktikan/$1';
+$route['download/(:any)'] = 'home/downloadFile/$1';
 $route['modulPraktikum/(:any)'] = 'user/modulPraktikum/$1';
 $route['editModul/(:any)'] = 'user/editModul/$1';
 $route['addPraktikan/(:any)'] = 'user/addPraktikan/$1';

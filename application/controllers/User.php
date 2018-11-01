@@ -8,6 +8,7 @@ class User extends CI_Controller{
     $this->load->model('user_model');
     $this->load->model('home_model');
     $this->load->model('admin_model');
+    $this->load->helper('file');
 
   }
 
@@ -61,7 +62,7 @@ class User extends CI_Controller{
     $data['detail'] = $this->home_model->getDetailModul($id);
     $data['user'] = $this->user_model->getListAssisten($data['detail']->id_praktikum);
     $data['praktikum'] = $this->home_model->getUserPraktikum();
-
+    $data['file'] = $this->user_model->getFile($id);
     if ($this->input->post('updateModul')) {
       $this->user_model->updateModul($id);
     } elseif ($this->input->post('back')) {
@@ -72,15 +73,19 @@ class User extends CI_Controller{
       $this->user_model->deleteModul($id);
       redirect(base_url('modulPraktikum/'.$data['detail']->id_praktikum));
     } elseif ($this->input->post('uploadFile')) {
-      $config['upload_path']   = APPPATH.'../assets/modul/';
+      $path = $_FILES['files']['name'];
+      $ext = pathinfo($path, PATHINFO_EXTENSION);
+      $data['detail'] = $this->home_model->getDetailModul($id);
+      $config['upload_path']   = APPPATH.'../assets/upload/'.$data['detail']->praktikum_name;
       $config['overwrite'] = TRUE;
-      $config['file_name']     = "[RSBK]".$this->input->post('type')." Bab ".$detail->modul;
-      $config['allowed_types'] = 'jpg|png';
+      $config['file_name']     = $this->input->post('type')."_Bab_".$data['detail']->modul;
+      $config['allowed_types'] = 'pdf|docx|doc|xps|zip|rar';
       $this->load->library('upload', $config);
-      if (!$this->upload->do_upload('carousel_img_')) {
+      if (!$this->upload->do_upload('files')) {
         echo $this->upload->display_errors();
       } else {
-        $this->home_model->updateCarousel($config['file_name']);
+        $this->user_model->deletePreviousFile($data['detail']->id_praktikum,$data['detail']->id,$this->input->post('type'));
+        $this->user_model->createUploadLog($data['detail']->id_praktikum,$data['detail']->id,$this->input->post('type'),$config['file_name'].".".$ext);
       }
 
     }
@@ -102,5 +107,17 @@ class User extends CI_Controller{
     $data['view_name'] = 'listPraktikan';
     $this->load->view('template',$data);
   }
+
+  public function groupPraktikan($id)
+  {
+    $data['praktikum'] = $this->home_model->getUserPraktikum();
+
+    $data['notification'] = 'no';
+    $data['view_name'] = 'groupPraktikan';
+    $this->load->view('template',$data);
+
+  }
+
+
 }
  ?>
